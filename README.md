@@ -1,9 +1,9 @@
 # Touristic-Bot
 Telegram Bot to give a user relevant info about places to visit in this or that city.
 
-Telegram Bot Name: **@TouristicBot**
+Telegram Bot Name: **TouristicBot**
 
-Token is not needed for deployment, it's listed in **src/main/resources/application.properties** file and injected right from there.
+Telegram Bot Token: **1250068641:AAGlpFdl_f6f3J4MycaHmsD6zkD_rgSQdtA**
 ## Discription
 By getting this project running you'll get Telegram Bot that has 2 registred commands
 - **/start**
@@ -29,8 +29,6 @@ Changes:
 
 ```
 spring.datasource.url=jdbc:mysql://IP-ADDRESS:PORT-YOUR-SERVER-RUNNING-ON/touristic_bot?serverTimezone=UTC&createDatabaseIfNotExist=true
-spring.datasource.username=YOUR-USERNAME
-spring.datasource.password=YOUR-PASSWORD
 ```
 ## Deployment
 In order to deploy the project from the command line you first need to navigate to the root folder of the project, where pom.xml file lies.
@@ -38,13 +36,13 @@ In order to deploy the project from the command line you first need to navigate 
 Then you need to build the project typing into the command line
 
 ```
-mvn install
+mvn package
 ```
 
-Next, to run the app type
+Next, to run the app type in the following line, specifying **YOUR-USERNAME** and **YOUR-PASSWORD** to access your local DB, **TELEGRAM-BOT-USERNAME** and **TELEGRAM-BOT-TOKEN** listed above.
 
 ```
-mvn spring-boot:run
+mvn spring-boot:run -Dspring-boot.run.arguments="--spring.datasource.username=YOUR-USERNAME --spring.datasource.password=YOUR-PASSWORD --telegram.bot.username=TELEGRAM-BOT-USERNAME --telegram.bot.token=TELEGRAM-BOT-TOKEN"
 ```
 ## Built With
 - MySQL - RDBMS
